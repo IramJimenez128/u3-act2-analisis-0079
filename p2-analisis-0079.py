@@ -20,3 +20,17 @@ print(agrupado['Autonomia_Km'].mean())
 print(" -+-+-+-+-+-+ Precio en dolares maximo de cada automovil +-+-+-+-+-+-+-")
 # Precio en dolares maximo de cada automovil
 print(agrupado['Precio_USD'].max())
+
+print("-+-+-+Iram-+-+-+-+-+ Segunda parte -+-+-+-+-0079+-+-+-+-+")
+print("Agregaciones multiples")
+print("Mean --> Promedio, sum --> suma, max --> Maximo, min --> Minimo")
+# Multiples funciones de agregado
+resultado_agregado = agrupado['Autonomia_Km'].agg(['mean', 'sum', 'max', 'min'])
+print(resultado_agregado)
+print("Agrupacion por varias columnas")
+print("Agrega columna al Data Frame")
+print("Columna Teams --> Equipo")
+# Crear nueva columna
+df['Equipo'] = ['A','B','A','B','A','B']
+agrupado_multiple = df.groupby(['Tipo_Motor', 'Equipo'])['Autonomia_Km'].mean()
+print(agrupado_multiple)
